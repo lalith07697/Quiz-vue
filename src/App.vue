@@ -3,7 +3,7 @@
     class="min-h-screen bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 dark:text-white overflow-x-hidden"
   >
     <nav class="p-4 flex justify-between items-center">
-      <router-link class="text-xl font-mono font-bold" to="/">Skill Brain</router-link>
+      <router-link class="text-xl font-mono font-bold" to="/">Brain strom</router-link>
       <div class="flex space-x-4">
         <router-link
           class="mx-2 font-mono hover:text-green-300 transition-colors duration-300 ease-in-out"
