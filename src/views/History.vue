@@ -1,19 +1,87 @@
+<!-- 
 <script setup>
-// import { inject } from 'vue'
-import { useHistoryStore } from '@/stores/counter';
-// const history = inject('quizHistory', null)
+import { useHistoryStore } from '@/stores/HistoryStore'
 const history = useHistoryStore()
+function getResultFeedback(score, total) {
+  const percentage = (score / total) * 100
+
+  if (percentage === 100) return { emoji: '🏆', label: 'Perfect!' }
+  if (percentage >= 80) return { emoji: '🎉', label: 'Great Job!' }
+  if (percentage >= 50) return { emoji: '😊', label: 'Not Bad!' }
+  if (percentage > 0) return { emoji: '🤔', label: 'Keep Practicing!' }
+  return { emoji: '😴', label: 'Try Again!' }
+}
 </script>
 
 <template>
-  <div class="max-w-xl mx-auto p-4">
-    <h2 class="text-xl font-mono font-bold mb-4">Quiz History</h2>
+  <div class="max-w-xl mx-auto p-4 font-mono">
+    <h2 class="text-2xl font-bold mb-6 text-center">📜 Quiz History</h2>
+    <div v-if="history.arr.length" class="grid gap-4">
+      <div
+        v-for="(item, index) in history.arr"
+        :key="index"
+        class="p-4 rounded-2xl shadow-lg border bg-gradient-to-r from-indigo-100 to-purple-100 hover:scale-105 transition-transform duration-300"
+      >
+        <div class="flex items-center justify-between">
+          
+          <div class="text-3xl">
+            {{ getResultFeedback(item.score, item.total).emoji }}
+            <p class="font-mono text-black font-bold text-xl">percentage: {{ (item.score * 100) / item.total }}</p>
+          </div>
 
-    <div v-if="history.arr.length">
-      <div v-for="(item, index) in history.arr" :key="index">
-        Score: {{ item.score }} / {{ item.total }}
+          
+          <div class="text-lg font-bold">{{ item.score }} / {{ item.total }}</div>
+        </div>
+
+        <p class="mt-2 text-sm text-gray-700 font-semibold">
+          {{ getResultFeedback(item.score, item.total).label }}
+        </p>
       </div>
     </div>
-    <p v-else>No quiz attempts yet.</p>
+
+    <p v-else class="text-center text-gray-200 mt-6">No quiz attempts yet. 📭</p>
+  </div>
+</template> -->
+
+<script setup>
+import { useHistoryStore } from '@/stores/HistoryStore'
+const history = useHistoryStore()
+
+function getResultFeedback(score, total) {
+  const percentage = (score / total) * 100
+  if (percentage === 100) return { emoji: '🏆', label: 'Perfect!' }
+  if (percentage >= 80) return { emoji: '🎉', label: 'Great Job!' }
+  if (percentage >= 50) return { emoji: '😊', label: 'Not Bad!' }
+  if (percentage > 0) return { emoji: '🤔', label: 'Keep Practicing!' }
+  return { emoji: '😴', label: 'Try Again!' }
+}
+</script>
+
+<template>
+  <div class="max-w-xl mx-auto p-4 font-mono">
+    <h2 class="text-2xl font-bold mb-6 text-center">📜 Quiz History</h2>
+
+    <div v-if="history.arr.length" class="grid gap-4">
+      <div
+        v-for="(item, index) in history.arr"
+        :key="index"
+        class="p-4 rounded-xl shadow-md bg-gradient-to-r from-indigo-100 to-purple-100 hover:scale-105 transition"
+      >
+        <div class="flex justify-between items-center">
+          <span class="text-3xl">{{ getResultFeedback(item.score, item.total).emoji }}</span>
+          <span class="text-lg font-bold text-black">{{ item.score }} / {{ item.total }}</span>
+        </div>
+        <p class="text-gray-700 font-bold mt-2">Topic: {{ item.topic }}</p>
+        <p class="text-sm text-gray-600">{{ getResultFeedback(item.score, item.total).label }}</p>
+      </div>
+    </div>
+
+    <p v-else class="text-center text-gray-400">No quiz attempts yet. 📭</p>
+    <router-link
+      to="/"
+      class="mt-6 inline-block px-6 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-1000 ease-in-out"
+    >
+      Start a New Quiz
+    </router-link>
   </div>
 </template>
