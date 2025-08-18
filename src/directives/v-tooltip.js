@@ -5,7 +5,7 @@ export default {
 
     tooltip.style.position = 'absolute'
     tooltip.style.background = '#333'
-    tooltip.style.color = 'green'
+    tooltip.style.color = '#ffffff'
     tooltip.style.borderRadius = '10px'
     tooltip.style.fontWeight = 'bold'
     tooltip.style.fontSize = '12px'
