@@ -10,6 +10,11 @@ function getResultFeedback(score, total) {
   if (percentage > 0) return { emoji: '🤔', label: 'Keep Practicing!' }
   return { emoji: '😴', label: 'Try Again!' }
 }
+
+function clearHistory() {
+  history.arr = []
+  localStorage.removeItem('quizHistory')
+}
 </script>
 
 <template>
@@ -32,9 +37,19 @@ function getResultFeedback(score, total) {
     </div>
 
     <p v-else class="text-center font-extrabold text-gray-200">No quiz attempts yet!!</p>
+
+    <div class="flex justify-end" v-if="history.arr.length">
+      <button
+        @click="clearHistory"
+        class="mt-4 px-6 py-2 bg-red-500 text-white font-semibold rounded-xl shadow-lg hover:bg-red-600 transition-all"
+      >
+        Clear History
+      </button>
+    </div>
+
     <router-link
       to="/"
-      class="mt-6 inline-block px-6 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-1000 ease-in-out"
+      class="mt-4 inline-block px-6 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-1000 ease-in-out"
     >
       Start a New Quiz
     </router-link>
