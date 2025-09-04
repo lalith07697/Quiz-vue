@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 dark:text-white overflow-x-hidden"
+    class="min-h-screen bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 dark:text-white overflow-X-hidden"
   >
     <nav class="p-4 flex justify-between items-center">
       <router-link class="text-xl font-mono font-bold" to="/">Brain strom</router-link>

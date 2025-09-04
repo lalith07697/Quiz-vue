@@ -4,11 +4,11 @@ const history = useHistoryStore()
 
 function getResultFeedback(score, total) {
   const percentage = (score / total) * 100
-  if (percentage === 100) return { emoji: '🏆', label: 'Perfect!' }
-  if (percentage >= 80) return { emoji: '🎉', label: 'Great Job!' }
-  if (percentage >= 50) return { emoji: '😊', label: 'Not Bad!' }
-  if (percentage > 0) return { emoji: '🤔', label: 'Keep Practicing!' }
-  return { emoji: '😴', label: 'Try Again!' }
+  if (percentage === 100) return { label: 'Perfect!' }
+  if (percentage >= 80) return { label: 'Great Job!' }
+  if (percentage >= 50) return { label: 'Not Bad!' }
+  if (percentage > 0) return { label: 'Keep Practicing!' }
+  return { label: 'Try Again!' }
 }
 
 function clearHistory() {
@@ -27,8 +27,7 @@ function clearHistory() {
         :key="index"
         class="p-4 rounded-xl shadow-md bg-gradient-to-r from-indigo-100 to-purple-100 hover:scale-105 transition"
       >
-        <div class="flex justify-between items-center">
-          <span class="text-3xl">{{ getResultFeedback(item.score, item.total).emoji }}</span>
+        <div class="flex justify-end items-center">
           <span class="text-lg font-bold text-black">{{ item.score }} / {{ item.total }}</span>
         </div>
         <p class="text-gray-700 font-bold mt-2">Topic: {{ item.topic }}</p>
