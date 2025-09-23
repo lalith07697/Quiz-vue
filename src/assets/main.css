@@ -1,5 +1,39 @@
 /* @import './base.css'; */
 @import 'tailwindcss';
+
+/* Glass morphism effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation links */
+.nav-link {
+  @apply font-mono text-gray-300 hover:text-cyan-400 transition-colors duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-gray-800/50;
+}
+
+/* Topic cards */
+.topic-card {
+  @apply relative glass-card p-6 text-center hover:scale-105 transition-all duration-300 overflow-hidden;
+}
+
+.topic-icon {
+  @apply w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4;
+}
+
+.topic-overlay {
+  @apply absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+}
+
+/* Option cards */
+.option-card {
+  @apply font-mono text-left;
+}
+
+/* Animations */
 @keyframes marquee {
   0% {
     transform: translateX(100%);
@@ -11,13 +45,24 @@
 
 .animate-marquee {
   display: inline-block;
-  animation: marquee 12s linear infinite;
+  animation: marquee 15s linear infinite;
   white-space: nowrap;
 }
-/* body {
-  overflow-x: hidden;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-} */
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #06b6d4, #8b5cf6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #0891b2, #7c3aed);
+}

@@ -1,93 +1,137 @@
 <template>
-  <div class="text-center h-auto">
-    <h2 class="text-3xl font-mono font-bold mb-4">Welcome to the Quiz App!</h2>
-    <div class="text-center">
-      <h1 class="font-mono font-bold text-2xl mb-4">Instructions:</h1>
-      <p class="max-w-xl mx-auto mb-6 font-mono text-gray-600 dark:text-gray-300">
+  <div class="text-center max-w-6xl mx-auto">
+    <div class="mb-12">
+      <h2 class="text-5xl font-mono font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+        Choose Your Challenge
+      </h2>
+      <div class="glass-card max-w-3xl mx-auto p-8 mb-8">
+        <h3 class="font-mono font-bold text-2xl mb-4 text-cyan-400">Instructions</h3>
+        <p class="font-mono text-gray-300 leading-relaxed">
         Test your knowledge with quick multiple-choice questions. Select the correct option to score
-        points. Explanations are provided after you choose an answer. Your results (score) are saved
-        to view later!
+        points. You have <span class="text-cyan-400 font-bold">5 minutes</span> to complete each quiz. 
+        Explanations are provided after each answer, and your results are saved for future reference.
       </p>
+      </div>
     </div>
-    <p class="text-gray-600 font-mono dark:text-gray-300 mb-6">
-      Choose a topic to get started(Just click on the topic you want)
-    </p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl h-auto mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       <router-link
         to="/quiz/javascript"
-        class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 font-mono font-bold text-xl"
+        class="topic-card group"
       >
-        <span v-tooltip="'JavaScript Quiz'"
-          ><img
+        <div class="topic-icon bg-yellow-500/20">
+          <img
             src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
-            class="img"
+            class="w-16 h-16 object-contain"
             alt="JavaScript"
-        /></span>
+          />
+        </div>
+        <h3 class="text-xl font-bold text-yellow-400 mb-2">JavaScript</h3>
+        <p class="text-gray-400 text-sm">Test your JS fundamentals</p>
+        <div class="topic-overlay">
+          <span class="text-white font-semibold">Start Quiz →</span>
+        </div>
       </router-link>
+
       <router-link
         to="/quiz/html"
-        class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 font-mono font-bold text-xl"
+        class="topic-card group"
       >
-        <span v-tooltip="'HTML Quiz'"
-          ><img
+        <div class="topic-icon bg-orange-500/20">
+          <img
             src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
-            class="img"
+            class="w-16 h-16 object-contain"
             alt="HTML"
-        /></span>
+          />
+        </div>
+        <h3 class="text-xl font-bold text-orange-400 mb-2">HTML</h3>
+        <p class="text-gray-400 text-sm">Master markup language</p>
+        <div class="topic-overlay">
+          <span class="text-white font-semibold">Start Quiz →</span>
+        </div>
       </router-link>
+
       <router-link
         to="/quiz/css"
-        class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 font-mono font-bold text-xl"
+        class="topic-card group"
       >
-        <span v-tooltip="'CSS Quiz'"
-          ><img
+        <div class="topic-icon bg-blue-500/20">
+          <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfj7-gq11u-a8ebYdxnDF-fIy6cBIJ-Mn2Lg&s"
-            class="img"
+            class="w-16 h-16 object-contain"
             alt="CSS"
-        /></span>
+          />
+        </div>
+        <h3 class="text-xl font-bold text-blue-400 mb-2">CSS</h3>
+        <p class="text-gray-400 text-sm">Style and design concepts</p>
+        <div class="topic-overlay">
+          <span class="text-white font-semibold">Start Quiz →</span>
+        </div>
       </router-link>
+
       <router-link
         to="/quiz/vue"
-        class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 font-mono font-bold text-xl"
+        class="topic-card group"
       >
-        <span v-tooltip="'Vue Quiz'"
-          ><img src="https://vuejs.org/images/logo.png" class="img" alt="Vue.js"
-        /></span>
+        <div class="topic-icon bg-green-500/20">
+          <img 
+            src="https://vuejs.org/images/logo.png" 
+            class="w-16 h-16 object-contain" 
+            alt="Vue.js"
+          />
+        </div>
+        <h3 class="text-xl font-bold text-green-400 mb-2">Vue.js</h3>
+        <p class="text-gray-400 text-sm">Progressive framework</p>
+        <div class="topic-overlay">
+          <span class="text-white font-semibold">Start Quiz →</span>
+        </div>
       </router-link>
+
       <router-link
         to="/quiz/react"
-        class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 font-mono font-bold text-xl"
+        class="topic-card group"
       >
-        <span v-tooltip="'React Quiz'"
-          ><img src="https://reactjs.org/logo-og.png" class="img" alt="React.js"
-        /></span>
+        <div class="topic-icon bg-cyan-500/20">
+          <img 
+            src="https://reactjs.org/logo-og.png" 
+            class="w-16 h-16 object-contain" 
+            alt="React.js"
+          />
+        </div>
+        <h3 class="text-xl font-bold text-cyan-400 mb-2">React</h3>
+        <p class="text-gray-400 text-sm">Component-based library</p>
+        <div class="topic-overlay">
+          <span class="text-white font-semibold">Start Quiz →</span>
+        </div>
       </router-link>
+
       <router-link
         to="/quiz/angular"
-        class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 font-mono font-bold text-xl"
+        class="topic-card group"
       >
-        <span v-tooltip="'Angular Quiz'"
-          ><img
+        <div class="topic-icon bg-red-500/20">
+          <img
             src="https://angular.io/assets/images/logos/angular/angular.png"
-            class="img"
+            class="w-16 h-16 object-contain"
             alt="Angular"
-        /></span>
+          />
+        </div>
+        <h3 class="text-xl font-bold text-red-400 mb-2">Angular</h3>
+        <p class="text-gray-400 text-sm">Full-featured framework</p>
+        <div class="topic-overlay">
+          <span class="text-white font-semibold">Start Quiz →</span>
+        </div>
       </router-link>
     </div>
-    <div class="relative overflow-hidden w-full h-10 mt-2">
-      <div class="animate-marquee text-lg font-bold font-mono">
-        All the best for the Quiz, make sure you attempt all the questions.
+
+    <div class="glass-card p-6">
+      <div class="relative overflow-hidden">
+        <div class="animate-marquee text-lg font-bold font-mono text-cyan-400">
+          🚀 Ready to test your skills? Choose a topic and start your coding journey! Good luck! 🎯
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup></script>
-<style>
-.img {
-  width: 130px;
-  height: 130px;
-  border-radius: 30px;
-}
-</style>
