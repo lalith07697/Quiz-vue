@@ -28,6 +28,10 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+<<<<<<< HEAD
 
 # Local Netlify folder
 .netlify
+=======
+.env
+>>>>>>> 1f3ad6202350c43ae7a23329fbeb1c5af64518c8
