@@ -1,8 +1,8 @@
 /* @import './base.css'; */
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
-/* @import "tailwindcss"; */
+@tailwind utilities; */
+@import "tailwindcss";
 /* Glass morphism effect */
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
@@ -17,12 +17,12 @@ body {
   overflow-x: hidden;
 }
 /* Navigation links */
-.nav-link {
+/* .nav-link {
   @apply font-mono text-gray-300 hover:text-cyan-400 transition-colors duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-gray-800/50;
-}
+} */
 
 /* Topic cards */
-.topic-card {
+/* .topic-card {
   @apply relative glass-card p-6 text-center hover:scale-105 transition-all duration-300 overflow-hidden;
 }
 
@@ -35,19 +35,19 @@ body {
 }
 
 /* Option cards */
-.option-card {
+/* .option-card {
   @apply font-mono text-left;
-}
+} */
 
 /* Animations */
-@keyframes marquee {
+ @keyframes marquee {
   0% {
     transform: translateX(100%);
   }
   100% {
     transform: translateX(-100%);
   }
-}
+} 
 
 .animate-marquee {
   display: inline-block;
